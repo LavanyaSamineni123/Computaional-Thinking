@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Data Types and Animations Example</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Custom CSS for animations */
+
+    body {
+  background-color: #9EB8D9; /* Set your desired background color */
+}
+
+    .example-box {
+      display: none;
+      position: absolute;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+
+    @keyframes slideInRight {
+      from {
+        transform: translateX(100%);
+      }
+      to {
+        transform: translateX(0);
+      }
+    }
+
+    /* Custom CSS for the quiz container */
+    /* Custom CSS for the quiz container */
+.quiz-container {
+  margin-top: 50px;
+  text-align: left;
+  max-width: 200px; /* Limit the maximum width of the quiz container */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 40px; /* Adjust this value to move the quiz container to the right */
+  margin-right: 40px; /* Add margin to the right for spacing */
+}
+
+
+    /* Custom CSS for the result container */
+    .result-container {
+      margin-top: 0px;
+      text-align: center;
+      max-width: 400px; /* Limit the maximum width of the result container */
+      margin-left: 20px;
+    }
+
+    /* Custom CSS to set a fixed height for the card bodies */
+    .card-body {
+      height: 160px; /* You can adjust this value as needed */
+    }
+
+    /* Custom CSS for card button alignment */
+    .btn-show-example {
+      margin-top: auto;
+    }
+
+    /* Custom CSS for integer card button alignment */
+    .btn-show-example-integer {
+      margin-top: 24px; /* Adjust this value as needed to move the button lower */
+    }
+
+    .btn-show-example-char {
+      margin-top: 24px; /* Adjust this value as needed to move the button lower */
+    }
+
+    /* Custom CSS for card animation */
+    .card {
+      opacity: 0;
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: #343a40; /* Dark background color for the navbar */
+    }
+
+    .navbar-dark .navbar-toggler-icon {
+      background-color: #fff; /* White color for the navbar toggler icon */
+    }
+
+    /* Navbar links color */
+    .navbar-nav .nav-link {
+      color: #fff;
+    }
+
+    /* Active link color */
+    .navbar-nav .nav-item.active .nav-link {
+      color: #ffc107; /* Yellow color for active link */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">DATA TYPES</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="C:\Users\lavan\Desktop\TASK\index.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="C:\Users\lavan\Desktop\TASK\Reference.html">Contents</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Data Types Section -->
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Integer</h5>
+            <p class="card-text">A whole number without a decimal point.</p>
+            <button class="btn btn-dark btn-show-example btn-show-example-integer" data-type="integer">Show Example</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">String</h5>
+            <p class="card-text">A sequence of characters enclosed in single or double quotes.</p>
+            <button class="btn btn-dark btn-show-example" data-type="string">Show Example</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Boolean</h5>
+            <p class="card-text">A data type representing true or false values.</p>
+            <button class="btn btn-dark btn-show-example" data-type="boolean">Show Example</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Second Row for Additional Data Types -->
+    <div class="row">
+      <!-- Char Data Type -->
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Char</h5>
+            <p class="card-text">A data type representing a single character.</p>
+            <button class="btn btn-dark btn-show-example btn-show-example-char" data-type="char">Show Example</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Void Data Type -->
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Void</h5>
+            <p class="card-text">A data type that represents the absence of a value.</p>
+            <button class="btn btn-dark btn-show-example" data-type="void">Show Example</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Float Data Type -->
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Float</h5>
+            <p class="card-text">A data type representing decimal values</p>
+            <button class="btn btn-dark btn-show-example btn-show-example-char" data-type="Float">Show Example</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Example Popup Box -->
+  <div class="example-box" id="examplePopup">
+    <p id="exampleContent"></p>
+    <button class="btn btn-secondary btn-close-example">Close</button>
+  </div>
+
+  <!-- Quiz Container -->
+  <div class="container quiz-container mt-4 float-left">
+    <h2 class="mb-4">Quiz</h2>
+    <form id="quizForm">
+      <div class="form-group">
+        <label for="dataInput" class="sr-only">Enter Data:</label>
+        <input type="text" class="form-control" id="dataInput" placeholder="Enter data...">
+      </div>
+      <button type="button" class="btn btn-dark mb-3" onclick="checkDataType()">Submit</button>
+    </form>
+  </div>
+
+  <!-- Result Container -->
+  <div class="container result-container mt-4 float-right">
+    <!-- Result Popup Box -->
+    <div class="example-box" id="resultBox">
+      <p id="resultContent"></p>
+      <button class="btn btn-secondary btn-close-example" onclick="hideResult()">Close</button>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and Popper.js -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- Custom JavaScript for animations and logic -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Add click event listeners to the "Show Example" buttons
+      var showExampleButtons = document.querySelectorAll('.btn-show-example');
+      showExampleButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+          var dataType = this.getAttribute('data-type');
+          showExample(dataType, this);
+        });
+      });
+    });
+
+    // Function to show example content based on data type
+    function showExample(dataType, button) {
+      var exampleContent = document.getElementById('exampleContent');
+
+      // Check if the button already contains result content
+      var hasResult = button.classList.contains('result-shown');
+
+      if (hasResult) {
+        // Revert the button to its original state
+        button.innerHTML = 'Show Example';
+        button.classList.remove('result-shown');
+      } else {
+        // Reset the content of the previous button
+        resetPreviousButtonContent();
+
+        // Set example content based on data type
+        switch (dataType) {
+          case 'integer':
+            exampleContent.innerText = 'Example: 42';
+            break;
+          case 'string':
+            exampleContent.innerText = 'Example: "Hello, World!"';
+            break;
+          case 'boolean':
+            exampleContent.innerText = 'Example: true';
+            break;
+          case 'char':
+            exampleContent.innerText = 'Example: \'A\'';
+            break;
+          case 'void':
+            exampleContent.innerText = 'Example: void';
+            break;
+          case 'Float':
+            exampleContent.innerText = 'Example: 0.1';
+            break;
+          default:
+            exampleContent.innerText = 'Example: Not available';
+        }
+
+        // Transform the button into the result display
+        button.innerHTML = '<p>' + exampleContent.innerText + '</p>';
+        button.classList.add('result-shown');
+      }
+    }
+
+    // Function to reset the content of the previous button
+    function resetPreviousButtonContent() {
+      var buttons = document.querySelectorAll('.btn-show-example');
+      buttons.forEach(function (button) {
+        // Check if the button contains result content
+        if (button.classList.contains('result-shown')) {
+          // Reset the button to its original state
+          button.innerHTML = 'Show Example';
+          button.classList.remove('result-shown');
+        }
+      });
+    }
+
+    // Quiz Logic
+    function checkDataType() {
+      var userInput = document.getElementById('dataInput').value.trim();
+      var resultContent = document.getElementById('resultContent');
+      var resultBox = document.getElementById('resultBox');
+
+      if (userInput === '') {
+        resultContent.innerHTML = '<p>Please enter data.</p>';
+      } else if (/^-?\d+$/.test(userInput)) {
+        resultContent.innerHTML = '<p>The entered data is of type: <strong>Integer</strong></p>';
+      } else if (/^-?\d*\.\d+$/.test(userInput)) {
+        resultContent.innerHTML = '<p>The entered data is of type: <strong>Float</strong></p>';
+      } else if (/^(true|false)$/i.test(userInput)) {
+        resultContent.innerHTML = '<p>The entered data is of type: <strong>Boolean</strong></p>';
+      } else if (/^\'[^\']\'$/.test(userInput)) {
+        resultContent.innerHTML = '<p>The entered data is of type: <strong>Char</strong></p>';
+      } else if (/^void$/i.test(userInput)) {
+        resultContent.innerHTML = '<p>The entered data is of type: <strong>Void</strong></p>';
+      } else {
+        resultContent.innerHTML = '<p>The entered data is of type: <strong>String</strong></p>';
+      }
+
+      // Set the position of the result box below the submit button
+      var quizRect = document.getElementById('quizForm').getBoundingClientRect();
+      resultBox.style.top = quizRect.top + 'px';
+      resultBox.style.left = quizRect.right + 20 + 'px'; /* Add margin for spacing */
+
+      // Show the result box
+      resultBox.style.display = 'block';
+    }
+
+    // Function to hide the result box
+    function hideResult() {
+      var resultBox = document.getElementById('resultBox');
+      resultBox.style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
